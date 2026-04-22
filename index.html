@@ -1,643 +1,630 @@
 <!doctype html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kuy Dinas | Tryout CPNS yang Bikin Siap Tempur</title>
-    <meta
-      name="description"
-      content="Kuy Dinas adalah platform tryout CPNS dengan simulasi CAT realistis, pembahasan detail, ranking nasional, dan drill materi adaptif."
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              ink: "#081F2D",
-              mist: "#EFF7F6",
-              tide: "#C6F0E3",
-              mint: "#6EE7B7",
-              coral: "#FF7A59",
-              gold: "#F6C453",
-              sky: "#6BCBFF"
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PP3FBJCGV6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-PP3FBJCGV6');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kuy Dinas | Tryout CPNS yang Bikin Siap Tempur</title>
+  <meta name="description"
+    content="Kuy Dinas adalah platform tryout CPNS dengan simulasi CAT realistis, pembahasan detail, ranking nasional, dan drill materi adaptif." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: "#081F2D",
+            mist: "#EFF7F6",
+            tide: "#C6F0E3",
+            mint: "#6EE7B7",
+            coral: "#FF7A59",
+            gold: "#F6C453",
+            sky: "#6BCBFF"
+          },
+          boxShadow: {
+            glow: "0 25px 80px rgba(8, 31, 45, 0.18)"
+          },
+          animation: {
+            float: "float 7s ease-in-out infinite",
+            drift: "drift 16s linear infinite",
+            pulseSoft: "pulseSoft 3s ease-in-out infinite",
+            marquee: "marquee 18s linear infinite"
+          },
+          keyframes: {
+            float: {
+              "0%, 100%": { transform: "translateY(0px)" },
+              "50%": { transform: "translateY(-14px)" }
             },
-            boxShadow: {
-              glow: "0 25px 80px rgba(8, 31, 45, 0.18)"
+            drift: {
+              "0%": { transform: "translateX(0px) translateY(0px) rotate(0deg)" },
+              "50%": { transform: "translateX(26px) translateY(-18px) rotate(10deg)" },
+              "100%": { transform: "translateX(0px) translateY(0px) rotate(0deg)" }
             },
-            animation: {
-              float: "float 7s ease-in-out infinite",
-              drift: "drift 16s linear infinite",
-              pulseSoft: "pulseSoft 3s ease-in-out infinite",
-              marquee: "marquee 18s linear infinite"
+            pulseSoft: {
+              "0%, 100%": { transform: "scale(1)", opacity: "0.9" },
+              "50%": { transform: "scale(1.08)", opacity: "1" }
             },
-            keyframes: {
-              float: {
-                "0%, 100%": { transform: "translateY(0px)" },
-                "50%": { transform: "translateY(-14px)" }
-              },
-              drift: {
-                "0%": { transform: "translateX(0px) translateY(0px) rotate(0deg)" },
-                "50%": { transform: "translateX(26px) translateY(-18px) rotate(10deg)" },
-                "100%": { transform: "translateX(0px) translateY(0px) rotate(0deg)" }
-              },
-              pulseSoft: {
-                "0%, 100%": { transform: "scale(1)", opacity: "0.9" },
-                "50%": { transform: "scale(1.08)", opacity: "1" }
-              },
-              marquee: {
-                "0%": { transform: "translateX(0)" },
-                "100%": { transform: "translateX(-50%)" }
-              }
+            marquee: {
+              "0%": { transform: "translateX(0)" },
+              "100%": { transform: "translateX(-50%)" }
             }
           }
         }
       }
-    </script>
-    <style>
-      html {
-        scroll-behavior: smooth;
-      }
+    }
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
 
-      body {
-        font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-        background:
-          radial-gradient(circle at top left, rgba(110, 231, 183, 0.24), transparent 30%),
-          radial-gradient(circle at top right, rgba(107, 203, 255, 0.22), transparent 25%),
-          linear-gradient(180deg, #f9fffd 0%, #eff7f6 48%, #ffffff 100%);
-      }
+    body {
+      font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(110, 231, 183, 0.24), transparent 30%),
+        radial-gradient(circle at top right, rgba(107, 203, 255, 0.22), transparent 25%),
+        linear-gradient(180deg, #f9fffd 0%, #eff7f6 48%, #ffffff 100%);
+    }
 
-      .reveal {
-        opacity: 0;
-        transform: translateY(28px);
-        transition:
-          opacity 700ms ease,
-          transform 700ms ease;
-      }
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition:
+        opacity 700ms ease,
+        transform 700ms ease;
+    }
 
-      .reveal.is-visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-      .grid-pattern {
-        background-image:
-          linear-gradient(rgba(8, 31, 45, 0.06) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(8, 31, 45, 0.06) 1px, transparent 1px);
-        background-size: 28px 28px;
-      }
+    .grid-pattern {
+      background-image:
+        linear-gradient(rgba(8, 31, 45, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(8, 31, 45, 0.06) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
 
-      .mask-fade {
-        mask-image: linear-gradient(90deg, transparent, white 12%, white 88%, transparent);
-      }
-    </style>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body class="text-ink">
-    <div class="relative overflow-hidden">
-      <div class="pointer-events-none absolute inset-0 -z-10">
-        <div class="absolute left-[-4rem] top-16 h-48 w-48 rounded-full bg-mint/40 blur-3xl animate-drift"></div>
-        <div class="absolute right-0 top-10 h-72 w-72 rounded-full bg-sky/30 blur-3xl animate-pulseSoft"></div>
-        <div class="absolute bottom-24 left-1/3 h-64 w-64 rounded-full bg-coral/20 blur-3xl animate-drift"></div>
-        <div class="absolute inset-0 grid-pattern opacity-50"></div>
-      </div>
+    .mask-fade {
+      mask-image: linear-gradient(90deg, transparent, white 12%, white 88%, transparent);
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+</head>
 
-      <header class="mx-auto max-w-7xl px-6 py-6 lg:px-8">
-        <nav
-          class="flex items-center justify-between rounded-full border border-white/70 bg-white/75 px-5 py-3 shadow-lg backdrop-blur"
-        >
-          <div class="flex items-center gap-3">
-            <div
-              class="grid h-11 w-11 place-items-center rounded-2xl bg-ink text-lg font-extrabold text-white shadow-glow"
-            >
-              KD
-            </div>
-            <div>
-              <p class="text-lg font-extrabold tracking-tight">Kuy Dinas</p>
-              <p class="text-sm text-ink/60">Tryout CPNS intensif & adaptif</p>
-            </div>
-          </div>
-          <div class="hidden items-center gap-8 text-sm font-semibold lg:flex">
-            <a href="#fitur" class="transition hover:text-coral">Fitur</a>
-            <a href="#simulasi" class="transition hover:text-coral">Simulasi</a>
-            <a href="#faq" class="transition hover:text-coral">FAQ</a>
-          </div>
-          <a
-            href="https://tryout.kuydinas.id"
-            class="rounded-full bg-ink px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-coral"
-          >
-            Mulai Tryout
-          </a>
-        </nav>
-      </header>
-
-      <main>
-        <section
-          class="mx-auto grid max-w-7xl gap-16 px-6 pb-20 pt-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:pb-28 lg:pt-10"
-        >
-          <div class="reveal">
-            <div
-              class="mb-6 inline-flex items-center gap-2 rounded-full border border-ink/10 bg-white/80 px-4 py-2 text-sm font-semibold text-ink/70 shadow-sm backdrop-blur"
-            >
-              <span class="h-2.5 w-2.5 rounded-full bg-mint"></span>
-              Simulasi CAT dengan nuansa kompetitif yang bikin nagih
-            </div>
-            <h1 class="max-w-3xl text-5xl font-extrabold leading-tight tracking-tight sm:text-6xl">
-              Kuy Dinas,
-              <span class="text-transparent bg-gradient-to-r from-coral via-gold to-sky bg-clip-text">
-                tempat latihan CPNS yang terasa seperti hari ujian.
-              </span>
-            </h1>
-            <p class="mt-6 max-w-2xl text-lg leading-8 text-ink/70">
-              Bangun ritme belajar dengan tryout TWK, TIU, dan TKP yang realistis, pembahasan tajam, leaderboard
-              nasional, dan evaluasi performa yang langsung menunjukkan titik lemahmu.
-            </p>
-            <div class="mt-10 flex flex-col gap-4 sm:flex-row">
-              <a
-                href="https://tryout.kuydinas.id"
-                class="rounded-full bg-ink px-7 py-4 text-center text-base font-bold text-white transition hover:-translate-y-1 hover:bg-coral"
-              >
-                Coba Gratis Sekarang
-              </a>
-              <a
-                href="#fitur"
-                class="rounded-full border border-ink/15 bg-white/90 px-7 py-4 text-center text-base font-bold text-ink transition hover:-translate-y-1 hover:border-coral hover:text-coral"
-              >
-                Lihat Fitur Utama
-              </a>
-            </div>
-            <div class="mt-10 grid max-w-2xl gap-4 sm:grid-cols-3">
-              <div class="rounded-3xl border border-white/70 bg-white/75 p-5 shadow-lg backdrop-blur">
-                <p class="text-3xl font-extrabold" data-counter="120000">0</p>
-                <p class="mt-1 text-sm text-ink/60">Peserta latihan</p>
-              </div>
-              <div class="rounded-3xl border border-white/70 bg-white/75 p-5 shadow-lg backdrop-blur">
-                <p class="text-3xl font-extrabold" data-counter="3200">0</p>
-                <p class="mt-1 text-sm text-ink/60">Bank soal terkurasi</p>
-              </div>
-              <div class="rounded-3xl border border-white/70 bg-white/75 p-5 shadow-lg backdrop-blur">
-                <p class="text-3xl font-extrabold" data-counter="94">0</p>
-                <p class="mt-1 text-sm text-ink/60">Target lolos passing grade</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="reveal relative">
-            <div
-              class="absolute -left-6 top-10 hidden rounded-3xl bg-gold px-4 py-3 text-sm font-bold text-ink shadow-lg lg:block animate-float"
-            >
-              Mode Sprint 15 Menit
-            </div>
-            <div
-              class="absolute -right-4 bottom-10 hidden rounded-3xl bg-coral px-4 py-3 text-sm font-bold text-white shadow-lg lg:block animate-float"
-            >
-              Ranking naik 128 posisi
-            </div>
-            <div class="relative overflow-hidden rounded-[2rem] border border-white/70 bg-ink p-5 shadow-glow">
-              <div
-                class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.16),_transparent_42%)]"
-              ></div>
-              <div class="relative rounded-[1.5rem] bg-[#0f3142] p-5 text-white">
-                <div class="flex items-center justify-between">
-                  <div>
-                    <p class="text-sm text-white/70">Dashboard Performa</p>
-                    <h2 class="mt-1 text-2xl font-bold">Simulasi SKD Kuy Dinas</h2>
-                  </div>
-                  <div class="rounded-full bg-white/10 px-4 py-2 text-sm font-semibold">Live CAT</div>
-                </div>
-
-                <div class="mt-6 grid gap-4 sm:grid-cols-3">
-                  <div class="rounded-3xl bg-white/8 p-4">
-                    <p class="text-sm text-white/60">TWK</p>
-                    <p class="mt-2 text-3xl font-extrabold text-mint">65</p>
-                    <div class="mt-3 h-2 rounded-full bg-white/10">
-                      <div class="h-2 w-[65%] rounded-full bg-mint"></div>
-                    </div>
-                  </div>
-                  <div class="rounded-3xl bg-white/8 p-4">
-                    <p class="text-sm text-white/60">TIU</p>
-                    <p class="mt-2 text-3xl font-extrabold text-gold">80</p>
-                    <div class="mt-3 h-2 rounded-full bg-white/10">
-                      <div class="h-2 w-[80%] rounded-full bg-gold"></div>
-                    </div>
-                  </div>
-                  <div class="rounded-3xl bg-white/8 p-4">
-                    <p class="text-sm text-white/60">TKP</p>
-                    <p class="mt-2 text-3xl font-extrabold text-sky">166</p>
-                    <div class="mt-3 h-2 rounded-full bg-white/10">
-                      <div class="h-2 w-full rounded-full bg-sky"></div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="mt-6 grid gap-4 lg:grid-cols-[1fr_0.85fr]">
-                  <div class="rounded-[1.5rem] bg-white p-5 text-ink">
-                    <div class="flex items-center justify-between">
-                      <div>
-                        <p class="text-sm text-ink/50">Prediksi kelulusan</p>
-                        <p class="text-2xl font-extrabold">82% siap tempur</p>
-                      </div>
-                      <span class="rounded-full bg-mint/20 px-3 py-2 text-sm font-bold text-ink">Naik 14%</span>
-                    </div>
-                    <div class="mt-5 space-y-4">
-                      <div>
-                        <div class="mb-2 flex justify-between text-sm font-semibold">
-                          <span>Ketahanan waktu</span>
-                          <span>93%</span>
-                        </div>
-                        <div class="h-3 rounded-full bg-mist">
-                          <div class="h-3 w-[93%] rounded-full bg-gradient-to-r from-mint to-sky"></div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="mb-2 flex justify-between text-sm font-semibold">
-                          <span>Akurasi jawaban</span>
-                          <span>81%</span>
-                        </div>
-                        <div class="h-3 rounded-full bg-mist">
-                          <div class="h-3 w-[81%] rounded-full bg-gradient-to-r from-coral to-gold"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="rounded-[1.5rem] bg-white/10 p-5 backdrop-blur">
-                    <p class="text-sm text-white/60">Top insight hari ini</p>
-                    <ul class="mt-4 space-y-3 text-sm">
-                      <li class="rounded-2xl bg-white/10 px-4 py-3">
-                        TIU numerik masih lambat pada soal deret campuran.
-                      </li>
-                      <li class="rounded-2xl bg-white/10 px-4 py-3">
-                        TKP pelayanan publik jadi pengungkit nilai utama.
-                      </li>
-                      <li class="rounded-2xl bg-white/10 px-4 py-3">Cocok lanjut ke paket drill 30 soal adaptif.</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- TEMP: Social Proof & Simple Funnel (Not yet used) -->
-        <section id="temp-social-proof" class="mx-auto max-w-7xl px-6 pb-24 lg:px-8">
-          <div class="reveal max-w-3xl">
-            <p class="text-sm font-extrabold uppercase tracking-[0.24em] text-coral">Social Proof</p>
-            <h2 class="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl">
-              Sudah ribuan peserta pakai Kuy Dinas untuk naik skor SKD.
-            </h2>
-            <p class="mt-5 text-lg leading-8 text-ink/70">
-              Bukan sekadar latihan — platform ini dipakai oleh peserta serius yang ingin lolos passing grade dengan
-              strategi.
-            </p>
-          </div>
-
-          <!-- Testimonials -->
-          <div class="mt-12 grid gap-6 lg:grid-cols-3">
-            <div class="reveal rounded-[2rem] border border-ink/10 bg-white p-6 shadow-lg">
-              <p class="text-sm text-ink/60">“Naik 40 poin dalam 2 minggu. Insight-nya ngena banget.”</p>
-              <p class="mt-4 font-bold">– Peserta CPNS 2024</p>
-            </div>
-            <div class="reveal rounded-[2rem] border border-ink/10 bg-white p-6 shadow-lg">
-              <p class="text-sm text-ink/60">“Simulasinya paling mirip CAT asli dibanding platform lain.”</p>
-              <p class="mt-4 font-bold">– Alumni Tryout</p>
-            </div>
-            <div class="reveal rounded-[2rem] border border-ink/10 bg-white p-6 shadow-lg">
-              <p class="text-sm text-ink/60">“Ranking bikin termotivasi banget buat latihan tiap hari.”</p>
-              <p class="mt-4 font-bold">– Pengguna Aktif</p>
-            </div>
-          </div>
-
-          <!-- Simple Funnel -->
-          <div class="mt-20">
-            <p class="text-sm font-extrabold uppercase tracking-[0.24em] text-coral">Funnel Sederhana</p>
-            <h3 class="mt-4 text-3xl font-extrabold">Alur konversi yang jelas dari pengunjung jadi pengguna aktif.</h3>
-
-            <div class="mt-10 grid gap-6 lg:grid-cols-4">
-              <div class="reveal rounded-[2rem] bg-white p-6 shadow-lg border border-ink/10">
-                <p class="text-sm text-ink/50">Step 1</p>
-                <h4 class="mt-2 font-bold text-lg">Landing Page</h4>
-                <p class="mt-2 text-sm text-ink/65">User datang dari ads / organik dan membaca value utama.</p>
-              </div>
-
-              <div class="reveal rounded-[2rem] bg-white p-6 shadow-lg border border-ink/10">
-                <p class="text-sm text-ink/50">Step 2</p>
-                <h4 class="mt-2 font-bold text-lg">Coba Gratis</h4>
-                <p class="mt-2 text-sm text-ink/65">Masuk ke tryout gratis tanpa friction tinggi.</p>
-              </div>
-
-              <div class="reveal rounded-[2rem] bg-white p-6 shadow-lg border border-ink/10">
-                <p class="text-sm text-ink/50">Step 3</p>
-                <h4 class="mt-2 font-bold text-lg">Dapat Insight</h4>
-                <p class="mt-2 text-sm text-ink/65">User lihat skor, kelemahan, dan potensi peningkatan.</p>
-              </div>
-
-              <div class="reveal rounded-[2rem] bg-gradient-to-br from-coral to-gold p-6 shadow-lg">
-                <p class="text-sm text-white/80">Step 4</p>
-                <h4 class="mt-2 font-bold text-lg text-white">Upgrade Premium</h4>
-                <p class="mt-2 text-sm text-white/90">Dorong konversi ke paket berbayar dengan urgency & value.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="border-y border-ink/10 bg-white/50 py-5">
-          <div class="mask-fade overflow-hidden">
-            <div
-              class="flex min-w-max animate-marquee gap-4 px-6 text-sm font-bold uppercase tracking-[0.28em] text-ink/45"
-            >
-              <span>Kuy Dinas</span>
-              <span>Simulasi CAT Realistis</span>
-              <span>Tryout Harian</span>
-              <span>Leaderboards Nasional</span>
-              <span>Pembahasan Full Video</span>
-              <span>Analitik Nilai</span>
-              <span>Kuy Dinas</span>
-              <span>Simulasi CAT Realistis</span>
-              <span>Tryout Harian</span>
-              <span>Leaderboards Nasional</span>
-              <span>Pembahasan Full Video</span>
-              <span>Analitik Nilai</span>
-            </div>
-          </div>
-        </section>
-
-        <section id="fitur" class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-          <div class="reveal max-w-3xl">
-            <p class="text-sm font-extrabold uppercase tracking-[0.24em] text-coral">Fitur Utama</p>
-            <h2 class="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl">
-              Dibuat untuk peserta yang ingin latihan keras, bukan sekadar lihat soal.
-            </h2>
-            <p class="mt-5 text-lg leading-8 text-ink/70">
-              Setiap fitur dirancang untuk meniru tekanan ujian, mempercepat evaluasi, dan menjaga ritme belajar tetap
-              konsisten.
-            </p>
-          </div>
-
-          <div class="mt-14 grid gap-6 lg:grid-cols-3">
-            <article class="reveal rounded-[2rem] border border-ink/10 bg-white p-7 shadow-lg">
-              <div class="inline-flex rounded-2xl bg-mint/20 p-4 text-2xl">01</div>
-              <h3 class="mt-6 text-2xl font-bold">Simulasi CAT yang terasa nyata</h3>
-              <p class="mt-3 leading-7 text-ink/65">
-                Interface cepat, timer ketat, perhitungan skor otomatis, dan nuansa kompetitif agar latihan tidak terasa
-                datar.
-              </p>
-            </article>
-            <article class="reveal rounded-[2rem] border border-ink/10 bg-ink p-7 text-white shadow-lg">
-              <div class="inline-flex rounded-2xl bg-white/10 p-4 text-2xl">02</div>
-              <h3 class="mt-6 text-2xl font-bold">Pembahasan yang langsung mengoreksi pola pikir</h3>
-              <p class="mt-3 leading-7 text-white/70">
-                Tiap soal dilengkapi pembahasan ringkas dan tajam supaya peserta tahu alasan benar-salah, bukan sekadar
-                hafal opsi.
-              </p>
-            </article>
-            <article class="reveal rounded-[2rem] border border-ink/10 bg-white p-7 shadow-lg">
-              <div class="inline-flex rounded-2xl bg-coral/15 p-4 text-2xl">03</div>
-              <h3 class="mt-6 text-2xl font-bold">Analitik kelemahan per submateri</h3>
-              <p class="mt-3 leading-7 text-ink/65">
-                Lihat area yang paling sering gagal, rekomendasi drill berikutnya, dan prioritas belajar yang paling
-                berdampak.
-              </p>
-            </article>
-            <article class="reveal rounded-[2rem] border border-ink/10 bg-white p-7 shadow-lg">
-              <div class="inline-flex rounded-2xl bg-gold/20 p-4 text-2xl">04</div>
-              <h3 class="mt-6 text-2xl font-bold">Ranking nasional yang memicu kompetisi</h3>
-              <p class="mt-3 leading-7 text-ink/65">
-                Bukan cuma nilai pribadi. Peserta bisa membandingkan performa dengan ribuan peserta lain untuk ukur
-                kesiapan nyata.
-              </p>
-            </article>
-            <article class="reveal rounded-[2rem] border border-ink/10 bg-white p-7 shadow-lg">
-              <div class="inline-flex rounded-2xl bg-sky/20 p-4 text-2xl">05</div>
-              <h3 class="mt-6 text-2xl font-bold">Mode belajar harian dan sprint</h3>
-              <p class="mt-3 leading-7 text-ink/65">
-                Ada tryout penuh, mini drill, dan sprint 15 menit supaya pengguna tetap konsisten bahkan di sela jadwal
-                kerja.
-              </p>
-            </article>
-            <article
-              class="reveal rounded-[2rem] border border-ink/10 bg-gradient-to-br from-coral to-gold p-7 text-ink shadow-lg"
-            >
-              <div class="inline-flex rounded-2xl bg-white/35 p-4 text-2xl">06</div>
-              <h3 class="mt-6 text-2xl font-bold">Reminder target dan streak latihan</h3>
-              <p class="mt-3 leading-7 text-ink/80">
-                Bangun kebiasaan belajar lewat target skor mingguan, streak harian, dan notifikasi sesi yang belum
-                diselesaikan.
-              </p>
-            </article>
-            <article
-              class="reveal rounded-[2rem] border border-ink/10 bg-gradient-to-br from-sky/20 to-mint/30 p-7 shadow-lg"
-            >
-              <div class="inline-flex rounded-2xl bg-white/60 p-4 text-2xl">07</div>
-              <h3 class="mt-6 text-2xl font-bold">Tryout GRATIS + Pembahasan Lengkap</h3>
-              <p class="mt-3 leading-7 text-ink/70">
-                Ikuti tryout SKD CPNS GRATIS dengan sistem CAT, lengkap dengan pembahasan, ranking nasional, dan bisa
-                diulang berkali-kali untuk meningkatkan skor.
-              </p>
-              <a
-                href="https://wa.me/6282360054904"
-                class="mt-5 inline-block rounded-full bg-ink px-5 py-3 text-sm font-bold text-white transition hover:bg-coral"
-              >
-                Daftar via WhatsApp
-              </a>
-            </article>
-          </div>
-        </section>
-
-        <section id="simulasi" class="mx-auto max-w-7xl px-6 pb-24 lg:px-8">
-          <div class="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr]">
-            <div class="reveal rounded-[2.25rem] bg-ink p-8 text-white shadow-glow">
-              <p class="text-sm font-bold uppercase tracking-[0.22em] text-mint">Alur Belajar</p>
-              <h2 class="mt-4 text-4xl font-extrabold tracking-tight">
-                Masuk, latihan, evaluasi, ulangi. Sesederhana itu.
-              </h2>
-              <div class="mt-10 space-y-5">
-                <div class="rounded-3xl bg-white/8 p-5">
-                  <p class="text-sm text-white/60">Step 1</p>
-                  <h3 class="mt-2 text-xl font-bold">Pilih jalur latihan</h3>
-                  <p class="mt-2 text-white/70">
-                    Tryout penuh SKD, drill TWK/TIU/TKP, atau sprint harian sesuai waktu yang tersedia.
-                  </p>
-                </div>
-                <div class="rounded-3xl bg-white/8 p-5">
-                  <p class="text-sm text-white/60">Step 2</p>
-                  <h3 class="mt-2 text-xl font-bold">Kerjakan dengan ritme CAT</h3>
-                  <p class="mt-2 text-white/70">
-                    Timer aktif, progres real-time, dan tekanan waktu yang meniru pengalaman ujian sebenarnya.
-                  </p>
-                </div>
-                <div class="rounded-3xl bg-white/8 p-5">
-                  <p class="text-sm text-white/60">Step 3</p>
-                  <h3 class="mt-2 text-xl font-bold">Dapatkan peta kelemahan</h3>
-                  <p class="mt-2 text-white/70">
-                    Sistem langsung memetakan topik paling lemah, soal paling sering salah, dan materi yang perlu
-                    dikejar.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="reveal grid gap-5 sm:grid-cols-2">
-              <div class="rounded-[2rem] border border-ink/10 bg-white p-6 shadow-lg sm:translate-y-8">
-                <p class="text-sm font-bold uppercase tracking-[0.2em] text-coral">Fokus</p>
-                <h3 class="mt-3 text-2xl font-bold">Bank soal bertingkat</h3>
-                <p class="mt-3 leading-7 text-ink/65">
-                  Pemula bisa mulai dari latihan ringan, peserta intensif bisa langsung masuk mode brutal dengan soal
-                  HOTS dan tekanan waktu.
-                </p>
-              </div>
-              <div class="rounded-[2rem] border border-ink/10 bg-gradient-to-br from-mint/60 to-sky/40 p-6 shadow-lg">
-                <p class="text-sm font-bold uppercase tracking-[0.2em] text-ink/60">Retensi</p>
-                <h3 class="mt-3 text-2xl font-bold">Review cepat pasca tryout</h3>
-                <p class="mt-3 leading-7 text-ink/75">
-                  Ringkasan salah paling fatal, soal yang hampir benar, dan rekomendasi sesi ulang untuk mempercepat
-                  perbaikan skor.
-                </p>
-              </div>
-              <div class="rounded-[2rem] border border-ink/10 bg-gradient-to-br from-coral/20 to-gold/30 p-6 shadow-lg">
-                <p class="text-sm font-bold uppercase tracking-[0.2em] text-ink/60">Motivasi</p>
-                <h3 class="mt-3 text-2xl font-bold">Leaderboard dan badge</h3>
-                <p class="mt-3 leading-7 text-ink/75">
-                  Naikkan semangat dengan badge streak, penghargaan top performer, dan persaingan ranking regional
-                  maupun nasional.
-                </p>
-              </div>
-              <div class="rounded-[2rem] border border-ink/10 bg-white p-6 shadow-lg sm:-translate-y-8">
-                <p class="text-sm font-bold uppercase tracking-[0.2em] text-sky">Aksi</p>
-                <h3 class="mt-3 text-2xl font-bold">CTA yang jelas ke konversi</h3>
-                <p class="mt-3 leading-7 text-ink/65">
-                  Landing page ini sudah mengarahkan pengguna ke coba gratis, paket premium, dan pendaftaran tanpa alur
-                  yang membingungkan.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="faq" class="mx-auto max-w-5xl px-6 pb-24 lg:px-8">
-          <div class="reveal text-center">
-            <p class="text-sm font-extrabold uppercase tracking-[0.24em] text-coral">FAQ</p>
-            <h2 class="mt-4 text-4xl font-extrabold tracking-tight">Pertanyaan yang biasanya muncul sebelum daftar.</h2>
-          </div>
-          <div class="mt-12 space-y-4">
-            <details class="reveal group rounded-[1.5rem] border border-ink/10 bg-white p-6 shadow-sm" open>
-              <summary class="cursor-pointer list-none text-lg font-bold">
-                Apakah landing page ini hanya tampilan atau sudah siap dipakai?
-              </summary>
-              <p class="mt-4 leading-7 text-ink/65">
-                Halaman ini sudah siap dipakai sebagai landing page statis. Tinggal hubungkan tombol CTA ke form
-                pendaftaran, WhatsApp, atau halaman checkout.
-              </p>
-            </details>
-            <details class="reveal group rounded-[1.5rem] border border-ink/10 bg-white p-6 shadow-sm">
-              <summary class="cursor-pointer list-none text-lg font-bold">
-                Fitur apa saja yang direkomendasikan untuk MVP platform tryout?
-              </summary>
-              <p class="mt-4 leading-7 text-ink/65">
-                Minimal: autentikasi, bank soal, simulasi CAT, timer, scoring, pembahasan, histori tryout, dan dashboard
-                analitik sederhana.
-              </p>
-            </details>
-            <details class="reveal group rounded-[1.5rem] border border-ink/10 bg-white p-6 shadow-sm">
-              <summary class="cursor-pointer list-none text-lg font-bold">Apakah desain ini mobile-friendly?</summary>
-              <p class="mt-4 leading-7 text-ink/65">
-                Ya. Layout dibuat responsif dengan prioritas pengalaman mobile, karena banyak pengguna tryout belajar
-                dari ponsel.
-              </p>
-            </details>
-          </div>
-        </section>
-
-        <section id="daftar" class="mx-auto max-w-7xl px-6 pb-24 lg:px-8">
-          <div
-            class="reveal relative overflow-hidden rounded-[2.5rem] bg-gradient-to-r from-ink via-[#11364a] to-coral p-8 text-white shadow-glow sm:p-12"
-          >
-            <div class="absolute right-0 top-0 h-56 w-56 rounded-full bg-white/10 blur-3xl"></div>
-            <div class="absolute bottom-0 left-0 h-56 w-56 rounded-full bg-mint/20 blur-3xl"></div>
-            <div class="relative flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-              <div class="max-w-3xl">
-                <p class="text-sm font-extrabold uppercase tracking-[0.24em] text-mint">Call to Action</p>
-                <h2 class="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl">
-                  Jadikan Kuy Dinas halaman pertama yang dibuka saat orang mulai serius mengejar CPNS.
-                </h2>
-                <p class="mt-5 max-w-2xl text-lg leading-8 text-white/75">
-                  Jika kamu mau, langkah berikutnya saya bisa lanjut membuat halaman login, dashboard tryout, daftar
-                  soal, atau alur checkout premium.
-                </p>
-              </div>
-              <div class="rounded-[2rem] bg-white/10 p-6 backdrop-blur">
-                <p class="text-sm font-semibold text-white/70">Arah CTA yang disarankan</p>
-                <div class="mt-4 space-y-3 text-sm font-semibold">
-                  <div class="rounded-2xl bg-white/10 px-4 py-3">Coba Gratis 3 Tryout</div>
-                  <div class="rounded-2xl bg-white/10 px-4 py-3">Masuk Kelas Intensif SKD</div>
-                  <div class="rounded-2xl bg-white/10 px-4 py-3">Daftar Gratis via WhatsApp (0823-6005-4904)</div>
-                </div>
-                <a
-                  href="https://wa.me/6282360054904"
-                  class="mt-6 inline-block rounded-full bg-white px-5 py-3 font-bold text-ink transition hover:bg-gold"
-                >
-                  Daftar Sekarang (Gratis)
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
+<body class="text-ink">
+  <div class="relative overflow-hidden">
+    <div class="pointer-events-none absolute inset-0 -z-10">
+      <div class="absolute left-[-4rem] top-16 h-48 w-48 rounded-full bg-mint/40 blur-3xl animate-drift"></div>
+      <div class="absolute right-0 top-10 h-72 w-72 rounded-full bg-sky/30 blur-3xl animate-pulseSoft"></div>
+      <div class="absolute bottom-24 left-1/3 h-64 w-64 rounded-full bg-coral/20 blur-3xl animate-drift"></div>
+      <div class="absolute inset-0 grid-pattern opacity-50"></div>
     </div>
 
-    <script>
-      const revealItems = document.querySelectorAll(".reveal")
-      const revealObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-visible")
-              revealObserver.unobserve(entry.target)
+    <header class="mx-auto max-w-7xl px-6 py-6 lg:px-8">
+      <nav
+        class="flex items-center justify-between rounded-full border border-white/70 bg-white/75 px-5 py-3 shadow-lg backdrop-blur">
+        <div class="flex items-center gap-3">
+          <div
+            class="grid h-11 w-11 place-items-center rounded-2xl bg-ink text-lg font-extrabold text-white shadow-glow">
+            KD
+          </div>
+          <div>
+            <p class="text-lg font-extrabold tracking-tight">Kuy Dinas</p>
+            <p class="text-sm text-ink/60">Tryout CPNS intensif & adaptif</p>
+          </div>
+        </div>
+        <div class="hidden items-center gap-8 text-sm font-semibold lg:flex">
+          <a href="#fitur" class="transition hover:text-coral">Fitur</a>
+          <a href="#simulasi" class="transition hover:text-coral">Simulasi</a>
+          <a href="#faq" class="transition hover:text-coral">FAQ</a>
+        </div>
+        <a href="https://tryout.kuydinas.id"
+          class="rounded-full bg-ink px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-coral">
+          Mulai Tryout
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <section
+        class="mx-auto grid max-w-7xl gap-16 px-6 pb-20 pt-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:pb-28 lg:pt-10">
+        <div class="reveal">
+          <div
+            class="mb-6 inline-flex items-center gap-2 rounded-full border border-ink/10 bg-white/80 px-4 py-2 text-sm font-semibold text-ink/70 shadow-sm backdrop-blur">
+            <span class="h-2.5 w-2.5 rounded-full bg-mint"></span>
+            Simulasi CAT dengan nuansa kompetitif yang bikin nagih
+          </div>
+          <h1 class="max-w-3xl text-5xl font-extrabold leading-tight tracking-tight sm:text-6xl">
+            Kuy Dinas,
+            <span class="text-transparent bg-gradient-to-r from-coral via-gold to-sky bg-clip-text">
+              tempat latihan CPNS yang terasa seperti hari ujian.
+            </span>
+          </h1>
+          <p class="mt-6 max-w-2xl text-lg leading-8 text-ink/70">
+            Bangun ritme belajar dengan tryout TWK, TIU, dan TKP yang realistis, pembahasan tajam, leaderboard
+            nasional, dan evaluasi performa yang langsung menunjukkan titik lemahmu.
+          </p>
+          <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+            <a href="https://tryout.kuydinas.id"
+              class="rounded-full bg-ink px-7 py-4 text-center text-base font-bold text-white transition hover:-translate-y-1 hover:bg-coral">
+              Coba Gratis Sekarang
+            </a>
+            <a href="#fitur"
+              class="rounded-full border border-ink/15 bg-white/90 px-7 py-4 text-center text-base font-bold text-ink transition hover:-translate-y-1 hover:border-coral hover:text-coral">
+              Lihat Fitur Utama
+            </a>
+          </div>
+          <div class="mt-10 grid max-w-2xl gap-4 sm:grid-cols-3">
+            <div class="rounded-3xl border border-white/70 bg-white/75 p-5 shadow-lg backdrop-blur">
+              <p class="text-3xl font-extrabold" data-counter="120000">0</p>
+              <p class="mt-1 text-sm text-ink/60">Peserta latihan</p>
+            </div>
+            <div class="rounded-3xl border border-white/70 bg-white/75 p-5 shadow-lg backdrop-blur">
+              <p class="text-3xl font-extrabold" data-counter="3200">0</p>
+              <p class="mt-1 text-sm text-ink/60">Bank soal terkurasi</p>
+            </div>
+            <div class="rounded-3xl border border-white/70 bg-white/75 p-5 shadow-lg backdrop-blur">
+              <p class="text-3xl font-extrabold" data-counter="94">0</p>
+              <p class="mt-1 text-sm text-ink/60">Target lolos passing grade</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal relative">
+          <div
+            class="absolute -left-6 top-10 hidden rounded-3xl bg-gold px-4 py-3 text-sm font-bold text-ink shadow-lg lg:block animate-float">
+            Mode Sprint 15 Menit
+          </div>
+          <div
+            class="absolute -right-4 bottom-10 hidden rounded-3xl bg-coral px-4 py-3 text-sm font-bold text-white shadow-lg lg:block animate-float">
+            Ranking naik 128 posisi
+          </div>
+          <div class="relative overflow-hidden rounded-[2rem] border border-white/70 bg-ink p-5 shadow-glow">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.16),_transparent_42%)]">
+            </div>
+            <div class="relative rounded-[1.5rem] bg-[#0f3142] p-5 text-white">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm text-white/70">Dashboard Performa</p>
+                  <h2 class="mt-1 text-2xl font-bold">Simulasi SKD Kuy Dinas</h2>
+                </div>
+                <div class="rounded-full bg-white/10 px-4 py-2 text-sm font-semibold">Live CAT</div>
+              </div>
+
+              <div class="mt-6 grid gap-4 sm:grid-cols-3">
+                <div class="rounded-3xl bg-white/8 p-4">
+                  <p class="text-sm text-white/60">TWK</p>
+                  <p class="mt-2 text-3xl font-extrabold text-mint">65</p>
+                  <div class="mt-3 h-2 rounded-full bg-white/10">
+                    <div class="h-2 w-[65%] rounded-full bg-mint"></div>
+                  </div>
+                </div>
+                <div class="rounded-3xl bg-white/8 p-4">
+                  <p class="text-sm text-white/60">TIU</p>
+                  <p class="mt-2 text-3xl font-extrabold text-gold">80</p>
+                  <div class="mt-3 h-2 rounded-full bg-white/10">
+                    <div class="h-2 w-[80%] rounded-full bg-gold"></div>
+                  </div>
+                </div>
+                <div class="rounded-3xl bg-white/8 p-4">
+                  <p class="text-sm text-white/60">TKP</p>
+                  <p class="mt-2 text-3xl font-extrabold text-sky">166</p>
+                  <div class="mt-3 h-2 rounded-full bg-white/10">
+                    <div class="h-2 w-full rounded-full bg-sky"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-6 grid gap-4 lg:grid-cols-[1fr_0.85fr]">
+                <div class="rounded-[1.5rem] bg-white p-5 text-ink">
+                  <div class="flex items-center justify-between">
+                    <div>
+                      <p class="text-sm text-ink/50">Prediksi kelulusan</p>
+                      <p class="text-2xl font-extrabold">82% siap tempur</p>
+                    </div>
+                    <span class="rounded-full bg-mint/20 px-3 py-2 text-sm font-bold text-ink">Naik 14%</span>
+                  </div>
+                  <div class="mt-5 space-y-4">
+                    <div>
+                      <div class="mb-2 flex justify-between text-sm font-semibold">
+                        <span>Ketahanan waktu</span>
+                        <span>93%</span>
+                      </div>
+                      <div class="h-3 rounded-full bg-mist">
+                        <div class="h-3 w-[93%] rounded-full bg-gradient-to-r from-mint to-sky"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="mb-2 flex justify-between text-sm font-semibold">
+                        <span>Akurasi jawaban</span>
+                        <span>81%</span>
+                      </div>
+                      <div class="h-3 rounded-full bg-mist">
+                        <div class="h-3 w-[81%] rounded-full bg-gradient-to-r from-coral to-gold"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="rounded-[1.5rem] bg-white/10 p-5 backdrop-blur">
+                  <p class="text-sm text-white/60">Top insight hari ini</p>
+                  <ul class="mt-4 space-y-3 text-sm">
+                    <li class="rounded-2xl bg-white/10 px-4 py-3">
+                      TIU numerik masih lambat pada soal deret campuran.
+                    </li>
+                    <li class="rounded-2xl bg-white/10 px-4 py-3">
+                      TKP pelayanan publik jadi pengungkit nilai utama.
+                    </li>
+                    <li class="rounded-2xl bg-white/10 px-4 py-3">Cocok lanjut ke paket drill 30 soal adaptif.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TEMP: Social Proof & Simple Funnel (Not yet used) -->
+      <section id="temp-social-proof" class="mx-auto max-w-7xl px-6 pb-24 lg:px-8">
+        <div class="reveal max-w-3xl">
+          <p class="text-sm font-extrabold uppercase tracking-[0.24em] text-coral">Social Proof</p>
+          <h2 class="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl">
+            Sudah ribuan peserta pakai Kuy Dinas untuk naik skor SKD.
+          </h2>
+          <p class="mt-5 text-lg leading-8 text-ink/70">
+            Bukan sekadar latihan — platform ini dipakai oleh peserta serius yang ingin lolos passing grade dengan
+            strategi.
+          </p>
+        </div>
+
+        <!-- Testimonials -->
+        <div class="mt-12 grid gap-6 lg:grid-cols-3">
+          <div class="reveal rounded-[2rem] border border-ink/10 bg-white p-6 shadow-lg">
+            <p class="text-sm text-ink/60">“Naik 40 poin dalam 2 minggu. Insight-nya ngena banget.”</p>
+            <p class="mt-4 font-bold">– Peserta CPNS 2024</p>
+          </div>
+          <div class="reveal rounded-[2rem] border border-ink/10 bg-white p-6 shadow-lg">
+            <p class="text-sm text-ink/60">“Simulasinya paling mirip CAT asli dibanding platform lain.”</p>
+            <p class="mt-4 font-bold">– Alumni Tryout</p>
+          </div>
+          <div class="reveal rounded-[2rem] border border-ink/10 bg-white p-6 shadow-lg">
+            <p class="text-sm text-ink/60">“Ranking bikin termotivasi banget buat latihan tiap hari.”</p>
+            <p class="mt-4 font-bold">– Pengguna Aktif</p>
+          </div>
+        </div>
+
+        <!-- Simple Funnel -->
+        <div class="mt-20">
+          <p class="text-sm font-extrabold uppercase tracking-[0.24em] text-coral">Funnel Sederhana</p>
+          <h3 class="mt-4 text-3xl font-extrabold">Alur konversi yang jelas dari pengunjung jadi pengguna aktif.</h3>
+
+          <div class="mt-10 grid gap-6 lg:grid-cols-4">
+            <div class="reveal rounded-[2rem] bg-white p-6 shadow-lg border border-ink/10">
+              <p class="text-sm text-ink/50">Step 1</p>
+              <h4 class="mt-2 font-bold text-lg">Landing Page</h4>
+              <p class="mt-2 text-sm text-ink/65">User datang dari ads / organik dan membaca value utama.</p>
+            </div>
+
+            <div class="reveal rounded-[2rem] bg-white p-6 shadow-lg border border-ink/10">
+              <p class="text-sm text-ink/50">Step 2</p>
+              <h4 class="mt-2 font-bold text-lg">Coba Gratis</h4>
+              <p class="mt-2 text-sm text-ink/65">Masuk ke tryout gratis tanpa friction tinggi.</p>
+            </div>
+
+            <div class="reveal rounded-[2rem] bg-white p-6 shadow-lg border border-ink/10">
+              <p class="text-sm text-ink/50">Step 3</p>
+              <h4 class="mt-2 font-bold text-lg">Dapat Insight</h4>
+              <p class="mt-2 text-sm text-ink/65">User lihat skor, kelemahan, dan potensi peningkatan.</p>
+            </div>
+
+            <div class="reveal rounded-[2rem] bg-gradient-to-br from-coral to-gold p-6 shadow-lg">
+              <p class="text-sm text-white/80">Step 4</p>
+              <h4 class="mt-2 font-bold text-lg text-white">Upgrade Premium</h4>
+              <p class="mt-2 text-sm text-white/90">Dorong konversi ke paket berbayar dengan urgency & value.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="border-y border-ink/10 bg-white/50 py-5">
+        <div class="mask-fade overflow-hidden">
+          <div
+            class="flex min-w-max animate-marquee gap-4 px-6 text-sm font-bold uppercase tracking-[0.28em] text-ink/45">
+            <span>Kuy Dinas</span>
+            <span>Simulasi CAT Realistis</span>
+            <span>Tryout Harian</span>
+            <span>Leaderboards Nasional</span>
+            <span>Pembahasan Full Video</span>
+            <span>Analitik Nilai</span>
+            <span>Kuy Dinas</span>
+            <span>Simulasi CAT Realistis</span>
+            <span>Tryout Harian</span>
+            <span>Leaderboards Nasional</span>
+            <span>Pembahasan Full Video</span>
+            <span>Analitik Nilai</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="fitur" class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
+        <div class="reveal max-w-3xl">
+          <p class="text-sm font-extrabold uppercase tracking-[0.24em] text-coral">Fitur Utama</p>
+          <h2 class="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl">
+            Dibuat untuk peserta yang ingin latihan keras, bukan sekadar lihat soal.
+          </h2>
+          <p class="mt-5 text-lg leading-8 text-ink/70">
+            Setiap fitur dirancang untuk meniru tekanan ujian, mempercepat evaluasi, dan menjaga ritme belajar tetap
+            konsisten.
+          </p>
+        </div>
+
+        <div class="mt-14 grid gap-6 lg:grid-cols-3">
+          <article class="reveal rounded-[2rem] border border-ink/10 bg-white p-7 shadow-lg">
+            <div class="inline-flex rounded-2xl bg-mint/20 p-4 text-2xl">01</div>
+            <h3 class="mt-6 text-2xl font-bold">Simulasi CAT yang terasa nyata</h3>
+            <p class="mt-3 leading-7 text-ink/65">
+              Interface cepat, timer ketat, perhitungan skor otomatis, dan nuansa kompetitif agar latihan tidak terasa
+              datar.
+            </p>
+          </article>
+          <article class="reveal rounded-[2rem] border border-ink/10 bg-ink p-7 text-white shadow-lg">
+            <div class="inline-flex rounded-2xl bg-white/10 p-4 text-2xl">02</div>
+            <h3 class="mt-6 text-2xl font-bold">Pembahasan yang langsung mengoreksi pola pikir</h3>
+            <p class="mt-3 leading-7 text-white/70">
+              Tiap soal dilengkapi pembahasan ringkas dan tajam supaya peserta tahu alasan benar-salah, bukan sekadar
+              hafal opsi.
+            </p>
+          </article>
+          <article class="reveal rounded-[2rem] border border-ink/10 bg-white p-7 shadow-lg">
+            <div class="inline-flex rounded-2xl bg-coral/15 p-4 text-2xl">03</div>
+            <h3 class="mt-6 text-2xl font-bold">Analitik kelemahan per submateri</h3>
+            <p class="mt-3 leading-7 text-ink/65">
+              Lihat area yang paling sering gagal, rekomendasi drill berikutnya, dan prioritas belajar yang paling
+              berdampak.
+            </p>
+          </article>
+          <article class="reveal rounded-[2rem] border border-ink/10 bg-white p-7 shadow-lg">
+            <div class="inline-flex rounded-2xl bg-gold/20 p-4 text-2xl">04</div>
+            <h3 class="mt-6 text-2xl font-bold">Ranking nasional yang memicu kompetisi</h3>
+            <p class="mt-3 leading-7 text-ink/65">
+              Bukan cuma nilai pribadi. Peserta bisa membandingkan performa dengan ribuan peserta lain untuk ukur
+              kesiapan nyata.
+            </p>
+          </article>
+          <article class="reveal rounded-[2rem] border border-ink/10 bg-white p-7 shadow-lg">
+            <div class="inline-flex rounded-2xl bg-sky/20 p-4 text-2xl">05</div>
+            <h3 class="mt-6 text-2xl font-bold">Mode belajar harian dan sprint</h3>
+            <p class="mt-3 leading-7 text-ink/65">
+              Ada tryout penuh, mini drill, dan sprint 15 menit supaya pengguna tetap konsisten bahkan di sela jadwal
+              kerja.
+            </p>
+          </article>
+          <article
+            class="reveal rounded-[2rem] border border-ink/10 bg-gradient-to-br from-coral to-gold p-7 text-ink shadow-lg">
+            <div class="inline-flex rounded-2xl bg-white/35 p-4 text-2xl">06</div>
+            <h3 class="mt-6 text-2xl font-bold">Reminder target dan streak latihan</h3>
+            <p class="mt-3 leading-7 text-ink/80">
+              Bangun kebiasaan belajar lewat target skor mingguan, streak harian, dan notifikasi sesi yang belum
+              diselesaikan.
+            </p>
+          </article>
+          <article
+            class="reveal rounded-[2rem] border border-ink/10 bg-gradient-to-br from-sky/20 to-mint/30 p-7 shadow-lg">
+            <div class="inline-flex rounded-2xl bg-white/60 p-4 text-2xl">07</div>
+            <h3 class="mt-6 text-2xl font-bold">Tryout GRATIS + Pembahasan Lengkap</h3>
+            <p class="mt-3 leading-7 text-ink/70">
+              Ikuti tryout SKD CPNS GRATIS dengan sistem CAT, lengkap dengan pembahasan, ranking nasional, dan bisa
+              diulang berkali-kali untuk meningkatkan skor.
+            </p>
+            <a href="https://wa.me/6282360054904"
+              class="mt-5 inline-block rounded-full bg-ink px-5 py-3 text-sm font-bold text-white transition hover:bg-coral">
+              Daftar via WhatsApp
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section id="simulasi" class="mx-auto max-w-7xl px-6 pb-24 lg:px-8">
+        <div class="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr]">
+          <div class="reveal rounded-[2.25rem] bg-ink p-8 text-white shadow-glow">
+            <p class="text-sm font-bold uppercase tracking-[0.22em] text-mint">Alur Belajar</p>
+            <h2 class="mt-4 text-4xl font-extrabold tracking-tight">
+              Masuk, latihan, evaluasi, ulangi. Sesederhana itu.
+            </h2>
+            <div class="mt-10 space-y-5">
+              <div class="rounded-3xl bg-white/8 p-5">
+                <p class="text-sm text-white/60">Step 1</p>
+                <h3 class="mt-2 text-xl font-bold">Pilih jalur latihan</h3>
+                <p class="mt-2 text-white/70">
+                  Tryout penuh SKD, drill TWK/TIU/TKP, atau sprint harian sesuai waktu yang tersedia.
+                </p>
+              </div>
+              <div class="rounded-3xl bg-white/8 p-5">
+                <p class="text-sm text-white/60">Step 2</p>
+                <h3 class="mt-2 text-xl font-bold">Kerjakan dengan ritme CAT</h3>
+                <p class="mt-2 text-white/70">
+                  Timer aktif, progres real-time, dan tekanan waktu yang meniru pengalaman ujian sebenarnya.
+                </p>
+              </div>
+              <div class="rounded-3xl bg-white/8 p-5">
+                <p class="text-sm text-white/60">Step 3</p>
+                <h3 class="mt-2 text-xl font-bold">Dapatkan peta kelemahan</h3>
+                <p class="mt-2 text-white/70">
+                  Sistem langsung memetakan topik paling lemah, soal paling sering salah, dan materi yang perlu
+                  dikejar.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal grid gap-5 sm:grid-cols-2">
+            <div class="rounded-[2rem] border border-ink/10 bg-white p-6 shadow-lg sm:translate-y-8">
+              <p class="text-sm font-bold uppercase tracking-[0.2em] text-coral">Fokus</p>
+              <h3 class="mt-3 text-2xl font-bold">Bank soal bertingkat</h3>
+              <p class="mt-3 leading-7 text-ink/65">
+                Pemula bisa mulai dari latihan ringan, peserta intensif bisa langsung masuk mode brutal dengan soal
+                HOTS dan tekanan waktu.
+              </p>
+            </div>
+            <div class="rounded-[2rem] border border-ink/10 bg-gradient-to-br from-mint/60 to-sky/40 p-6 shadow-lg">
+              <p class="text-sm font-bold uppercase tracking-[0.2em] text-ink/60">Retensi</p>
+              <h3 class="mt-3 text-2xl font-bold">Review cepat pasca tryout</h3>
+              <p class="mt-3 leading-7 text-ink/75">
+                Ringkasan salah paling fatal, soal yang hampir benar, dan rekomendasi sesi ulang untuk mempercepat
+                perbaikan skor.
+              </p>
+            </div>
+            <div class="rounded-[2rem] border border-ink/10 bg-gradient-to-br from-coral/20 to-gold/30 p-6 shadow-lg">
+              <p class="text-sm font-bold uppercase tracking-[0.2em] text-ink/60">Motivasi</p>
+              <h3 class="mt-3 text-2xl font-bold">Leaderboard dan badge</h3>
+              <p class="mt-3 leading-7 text-ink/75">
+                Naikkan semangat dengan badge streak, penghargaan top performer, dan persaingan ranking regional
+                maupun nasional.
+              </p>
+            </div>
+            <div class="rounded-[2rem] border border-ink/10 bg-white p-6 shadow-lg sm:-translate-y-8">
+              <p class="text-sm font-bold uppercase tracking-[0.2em] text-sky">Aksi</p>
+              <h3 class="mt-3 text-2xl font-bold">CTA yang jelas ke konversi</h3>
+              <p class="mt-3 leading-7 text-ink/65">
+                Landing page ini sudah mengarahkan pengguna ke coba gratis, paket premium, dan pendaftaran tanpa alur
+                yang membingungkan.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="mx-auto max-w-5xl px-6 pb-24 lg:px-8">
+        <div class="reveal text-center">
+          <p class="text-sm font-extrabold uppercase tracking-[0.24em] text-coral">FAQ</p>
+          <h2 class="mt-4 text-4xl font-extrabold tracking-tight">Pertanyaan yang biasanya muncul sebelum daftar.</h2>
+        </div>
+        <div class="mt-12 space-y-4">
+          <details class="reveal group rounded-[1.5rem] border border-ink/10 bg-white p-6 shadow-sm" open>
+            <summary class="cursor-pointer list-none text-lg font-bold">
+              Apakah landing page ini hanya tampilan atau sudah siap dipakai?
+            </summary>
+            <p class="mt-4 leading-7 text-ink/65">
+              Halaman ini sudah siap dipakai sebagai landing page statis. Tinggal hubungkan tombol CTA ke form
+              pendaftaran, WhatsApp, atau halaman checkout.
+            </p>
+          </details>
+          <details class="reveal group rounded-[1.5rem] border border-ink/10 bg-white p-6 shadow-sm">
+            <summary class="cursor-pointer list-none text-lg font-bold">
+              Fitur apa saja yang direkomendasikan untuk MVP platform tryout?
+            </summary>
+            <p class="mt-4 leading-7 text-ink/65">
+              Minimal: autentikasi, bank soal, simulasi CAT, timer, scoring, pembahasan, histori tryout, dan dashboard
+              analitik sederhana.
+            </p>
+          </details>
+          <details class="reveal group rounded-[1.5rem] border border-ink/10 bg-white p-6 shadow-sm">
+            <summary class="cursor-pointer list-none text-lg font-bold">Apakah desain ini mobile-friendly?</summary>
+            <p class="mt-4 leading-7 text-ink/65">
+              Ya. Layout dibuat responsif dengan prioritas pengalaman mobile, karena banyak pengguna tryout belajar
+              dari ponsel.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <section id="daftar" class="mx-auto max-w-7xl px-6 pb-24 lg:px-8">
+        <div
+          class="reveal relative overflow-hidden rounded-[2.5rem] bg-gradient-to-r from-ink via-[#11364a] to-coral p-8 text-white shadow-glow sm:p-12">
+          <div class="absolute right-0 top-0 h-56 w-56 rounded-full bg-white/10 blur-3xl"></div>
+          <div class="absolute bottom-0 left-0 h-56 w-56 rounded-full bg-mint/20 blur-3xl"></div>
+          <div class="relative flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+            <div class="max-w-3xl">
+              <p class="text-sm font-extrabold uppercase tracking-[0.24em] text-mint">Call to Action</p>
+              <h2 class="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl">
+                Jadikan Kuy Dinas halaman pertama yang dibuka saat orang mulai serius mengejar CPNS.
+              </h2>
+              <p class="mt-5 max-w-2xl text-lg leading-8 text-white/75">
+                Jika kamu mau, langkah berikutnya saya bisa lanjut membuat halaman login, dashboard tryout, daftar
+                soal, atau alur checkout premium.
+              </p>
+            </div>
+            <div class="rounded-[2rem] bg-white/10 p-6 backdrop-blur">
+              <p class="text-sm font-semibold text-white/70">Arah CTA yang disarankan</p>
+              <div class="mt-4 space-y-3 text-sm font-semibold">
+                <div class="rounded-2xl bg-white/10 px-4 py-3">Coba Gratis 3 Tryout</div>
+                <div class="rounded-2xl bg-white/10 px-4 py-3">Masuk Kelas Intensif SKD</div>
+                <div class="rounded-2xl bg-white/10 px-4 py-3">Daftar Gratis via WhatsApp (0823-6005-4904)</div>
+              </div>
+              <a href="https://wa.me/6282360054904"
+                class="mt-6 inline-block rounded-full bg-white px-5 py-3 font-bold text-ink transition hover:bg-gold">
+                Daftar Sekarang (Gratis)
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const revealItems = document.querySelectorAll(".reveal")
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible")
+            revealObserver.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.16 }
+    )
+
+    revealItems.forEach((item, index) => {
+      item.style.transitionDelay = `${Math.min(index * 70, 280)}ms`
+      revealObserver.observe(item)
+    })
+
+    const counters = document.querySelectorAll("[data-counter]")
+    const counterObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return
+
+          const element = entry.target
+          const target = Number(element.dataset.counter)
+          const duration = 1600
+          const start = performance.now()
+
+          const tick = (now) => {
+            const progress = Math.min((now - start) / duration, 1)
+            const eased = 1 - Math.pow(1 - progress, 3)
+            const value = Math.floor(target * eased)
+            element.textContent = target >= 1000 ? value.toLocaleString("id-ID") + "+" : value + "%"
+            if (progress < 1) {
+              requestAnimationFrame(tick)
             }
-          })
-        },
-        { threshold: 0.16 }
-      )
+          }
 
-      revealItems.forEach((item, index) => {
-        item.style.transitionDelay = `${Math.min(index * 70, 280)}ms`
-        revealObserver.observe(item)
-      })
+          requestAnimationFrame(tick)
+          counterObserver.unobserve(element)
+        })
+      },
+      { threshold: 0.6 }
+    )
 
-      const counters = document.querySelectorAll("[data-counter]")
-      const counterObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return
+    counters.forEach((counter) => counterObserver.observe(counter))
+  </script>
+</body>
 
-            const element = entry.target
-            const target = Number(element.dataset.counter)
-            const duration = 1600
-            const start = performance.now()
-
-            const tick = (now) => {
-              const progress = Math.min((now - start) / duration, 1)
-              const eased = 1 - Math.pow(1 - progress, 3)
-              const value = Math.floor(target * eased)
-              element.textContent = target >= 1000 ? value.toLocaleString("id-ID") + "+" : value + "%"
-              if (progress < 1) {
-                requestAnimationFrame(tick)
-              }
-            }
-
-            requestAnimationFrame(tick)
-            counterObserver.unobserve(element)
-          })
-        },
-        { threshold: 0.6 }
-      )
-
-      counters.forEach((counter) => counterObserver.observe(counter))
-    </script>
-  </body>
 </html>
