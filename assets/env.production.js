@@ -9,5 +9,5 @@
  *   (atau atur via CI/CD pipeline)
  */
 window.APP_CONFIG = {
-  apiBase: "https://api.kuydinas.id"
+  apiBase: "https://apikuy.kuydinas.id"
 }
