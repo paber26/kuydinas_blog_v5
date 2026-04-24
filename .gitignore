@@ -1,0 +1,5 @@
+# Environment config — jangan commit, override per server
+assets/env.js
+
+# macOS
+.DS_Store

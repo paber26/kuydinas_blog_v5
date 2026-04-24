@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PP3FBJCGV6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-PP3FBJCGV6');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kuy Dinas | Lolos Passing Grade CPNS 2026</title>
+  <link rel="icon" type="image/x-icon" href="logo-kuydinas.ico" />
+  <meta name="description" content="Kuy Dinas adalah platform tryout CPNS dengan simulasi CAT realistis, pembahasan detail, ranking nasional, dan drill materi adaptif." />
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: "#081F2D",
+            mist: "#EFF7F6",
+            tide: "#C6F0E3",
+            mint: "#6EE7B7",
+            coral: "#FF7A59",
+            gold: "#F6C453",
+            sky: "#6BCBFF"
+          },
+          boxShadow: {
+            glow: "0 20px 60px rgba(110, 231, 183, 0.25)"
+          },
+          animation: {
+            float: "float 6s ease-in-out infinite",
+            pulseSoft: "pulseSoft 3s ease-in-out infinite",
+          },
+          keyframes: {
+            float: {
+              "0%, 100%": { transform: "translateY(0px)" },
+              "50%": { transform: "translateY(-10px)" }
+            },
+            pulseSoft: {
+              "0%, 100%": { transform: "scale(1)", opacity: "0.8" },
+              "50%": { transform: "scale(1.05)", opacity: "1" }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(110, 231, 183, 0.15), transparent 40%),
+        radial-gradient(circle at top right, rgba(107, 203, 255, 0.15), transparent 40%),
+        linear-gradient(180deg, #f9fffd 0%, #eff7f6 100%);
+      background-attachment: fixed;
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 800ms ease, transform 800ms ease;
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    details > summary {
+      list-style: none;
+    }
+    details > summary::-webkit-details-marker {
+      display: none;
+    }
+    details[open] summary ~ * {
+      animation: sweep .3s ease-in-out;
+    }
+    @keyframes sweep {
+      0%    {opacity: 0; transform: translateY(-10px)}
+      100%  {opacity: 1; transform: translateY(0)}
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+
+<body class="text-ink antialiased">
+  
+  <!-- Urgency / Promo Banner -->
+  <div class="bg-coral text-white text-center py-2.5 px-4 text-sm font-bold shadow-sm relative z-50">
+    <span class="animate-pulse inline-block mr-1">🔥</span> Promo Hari Ini: Akses Tryout Gratis Untuk 100 Pendaftar Pertama!
+  </div>
+
+  <div class="relative overflow-hidden">
+    <!-- Navbar -->
+    <header class="mx-auto max-w-7xl px-4 py-5 lg:px-8 relative z-40">
+      <nav class="flex items-center justify-between rounded-full glass-card px-5 py-3 shadow-sm">
+        <div class="flex items-center gap-3">
+          <img src="logo-kuydinas.png" alt="Logo Kuy Dinas" class="h-9 w-auto object-contain" loading="lazy" />
+          <div>
+            <p class="text-base font-extrabold tracking-tight">Kuy Dinas</p>
+          </div>
+        </div>
+        <div class="hidden items-center gap-8 text-sm font-semibold lg:flex">
+          <a href="#fitur" class="transition hover:text-coral" onclick="trackScroll('Nav_Fitur')">Fitur</a>
+          <a href="#faq" class="transition hover:text-coral" onclick="trackScroll('Nav_FAQ')">FAQ</a>
+        </div>
+        <a href="https://tryout.kuydinas.id" onclick="trackCTA('nav_login_button')" class="rounded-full bg-ink px-6 py-2.5 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:shadow-lg">
+          Masuk / Daftar
+        </a>
+      </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <main>
+      <section class="mx-auto max-w-5xl px-4 pt-12 pb-20 text-center lg:pt-20 lg:pb-28">
+        <div class="reveal">
+          <div class="mb-6 inline-flex items-center gap-2 rounded-full glass-card px-4 py-2 text-xs sm:text-sm font-semibold text-ink/80 shadow-sm">
+            <span class="flex h-2.5 w-2.5 relative">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-mint opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-mint"></span>
+            </span>
+            Sistem CAT Terbaru Sesuai Kisi-kisi BKN 2026
+          </div>
+          
+          <h1 class="mx-auto max-w-4xl text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+            Cek Skor Kamu Sekarang! Apakah Sudah Lolos <span class="text-transparent bg-gradient-to-r from-mint to-sky bg-clip-text">Passing Grade CPNS 2026?</span>
+          </h1>
+          
+          <p class="mx-auto mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-ink/70">
+            Jangan sampai gagal karena kurang persiapan. Gunakan simulasi CAT realistis, evaluasi kelemahan, dan intip posisi ranking nasionalmu hari ini juga.
+          </p>
+          
+          <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
+            <a href="https://tryout.kuydinas.id" onclick="trackCTA('hero_primary')" class="w-full sm:w-auto rounded-full bg-mint px-8 py-4 text-center text-lg font-extrabold text-ink shadow-glow transition hover:-translate-y-1 hover:shadow-xl">
+              Mulai Tryout Gratis 🚀
+            </a>
+            <a href="https://tryout.kuydinas.id" onclick="trackCTA('hero_secondary')" class="w-full sm:w-auto rounded-full glass-card border border-ink/20 px-8 py-4 text-center text-lg font-bold text-ink transition hover:-translate-y-1 hover:bg-white/90">
+              Lihat Ranking Nasional 🏆
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SOCIAL PROOF / STATS SECTION -->
+      <section class="border-y border-ink/5 bg-white/50 py-8 lg:py-12 backdrop-blur-sm">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <div class="grid grid-cols-2 gap-6 sm:grid-cols-4 text-center divide-x divide-ink/10">
+            <div class="reveal">
+              <p class="text-3xl lg:text-4xl font-extrabold text-ink" data-counter="125430">0</p>
+              <p class="mt-2 text-xs lg:text-sm font-semibold text-ink/60 uppercase tracking-widest">Peserta Tryout</p>
+            </div>
+            <div class="reveal">
+              <p class="text-3xl lg:text-4xl font-extrabold text-ink" data-counter="3250">0</p>
+              <p class="mt-2 text-xs lg:text-sm font-semibold text-ink/60 uppercase tracking-widest">Soal Tersedia</p>
+            </div>
+            <div class="reveal">
+              <p class="text-3xl lg:text-4xl font-extrabold text-ink" data-counter="96">0</p>
+              <p class="mt-2 text-xs lg:text-sm font-semibold text-ink/60 uppercase tracking-widest">Target Lolos (%)</p>
+            </div>
+            <div class="reveal">
+              <p class="text-3xl lg:text-4xl font-extrabold text-ink" data-counter="4.9">0</p>
+              <p class="mt-2 text-xs lg:text-sm font-semibold text-ink/60 uppercase tracking-widest">Rating User (⭐)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BENEFIT SECTION -->
+      <section id="fitur" class="mx-auto max-w-7xl px-4 py-20 lg:py-28 lg:px-8">
+        <div class="text-center reveal">
+          <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">Mengapa Ribuan Peserta Memilih Kuy Dinas?</h2>
+          <p class="mt-4 text-lg text-ink/60">Fitur dirancang khusus untuk mempercepat pemahaman, bukan sekadar menghafal.</p>
+        </div>
+
+        <div class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="reveal glass-card rounded-[2rem] p-8 hover:-translate-y-2 transition duration-300">
+            <div class="h-14 w-14 rounded-2xl bg-mint/20 flex items-center justify-center text-2xl mb-6">💻</div>
+            <h3 class="text-xl font-bold">Simulasi CAT Asli</h3>
+            <p class="mt-3 text-ink/70 leading-relaxed">Antarmuka dibuat semirip mungkin dengan ujian BKN asli. Biasakan dirimu dengan layout dan tekanan waktunya.</p>
+          </div>
+          
+          <div class="reveal glass-card rounded-[2rem] p-8 hover:-translate-y-2 transition duration-300">
+            <div class="h-14 w-14 rounded-2xl bg-sky/20 flex items-center justify-center text-2xl mb-6">📊</div>
+            <h3 class="text-xl font-bold">Ranking Nasional</h3>
+            <p class="mt-3 text-ink/70 leading-relaxed">Jangan menebak-nebak posisimu. Lihat perbandingan skormu dengan ribuan pesaing lain secara real-time.</p>
+          </div>
+
+          <div class="reveal glass-card rounded-[2rem] p-8 hover:-translate-y-2 transition duration-300">
+            <div class="h-14 w-14 rounded-2xl bg-coral/20 flex items-center justify-center text-2xl mb-6">💡</div>
+            <h3 class="text-xl font-bold">Pembahasan Detail</h3>
+            <p class="mt-3 text-ink/70 leading-relaxed">Setiap soal dilengkapi dengan pembahasan yang runut, trik cepat, dan alasan mengapa opsi lain salah.</p>
+          </div>
+
+          <div class="reveal glass-card rounded-[2rem] p-8 hover:-translate-y-2 transition duration-300">
+            <div class="h-14 w-14 rounded-2xl bg-gold/20 flex items-center justify-center text-2xl mb-6">🎯</div>
+            <h3 class="text-xl font-bold">Analisis Kelemahan</h3>
+            <p class="mt-3 text-ink/70 leading-relaxed">Sistem cerdas kami akan mendeteksi materi mana yang sering kamu jawab salah, lalu merekomendasikan fokus belajarmu.</p>
+          </div>
+
+          <div class="reveal glass-card rounded-[2rem] p-8 hover:-translate-y-2 transition duration-300 sm:col-span-2 lg:col-span-2">
+            <div class="h-14 w-14 rounded-2xl bg-ink/5 flex items-center justify-center text-2xl mb-6">🚀</div>
+            <h3 class="text-xl font-bold">Prediksi Soal Terbaru (HOTS)</h3>
+            <p class="mt-3 text-ink/70 leading-relaxed max-w-2xl">Bank soal yang terus diupdate berdasarkan FR (Field Report) tahun lalu dan tren soal HOTS terbaru dari BKN. Kami pastikan kamu tidak kaget saat ujian nanti.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA BANNER SECTION -->
+      <section class="mx-auto max-w-6xl px-4 pb-20 lg:pb-28">
+        <div class="reveal rounded-[2.5rem] bg-ink relative overflow-hidden p-8 sm:p-14 text-center lg:text-left flex flex-col lg:flex-row items-center justify-between gap-10 shadow-2xl">
+          <div class="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-mint/30 blur-3xl pointer-events-none"></div>
+          <div class="absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-sky/20 blur-3xl pointer-events-none"></div>
+          
+          <div class="relative z-10 max-w-2xl">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight">Waktu Menuju Tes Semakin Dekat. Sudah Siap?</h2>
+            <p class="mt-4 text-white/70 text-lg">Ribuan peserta sudah mulai curi start belajar hari ini. Jangan sampai tertinggal rombongan.</p>
+          </div>
+          
+          <div class="relative z-10 shrink-0 w-full lg:w-auto">
+            <a href="https://tryout.kuydinas.id" onclick="trackCTA('banner_cta')" class="block w-full rounded-full bg-mint px-8 py-4 text-center text-lg font-bold text-ink transition hover:scale-105 shadow-glow">
+              Ambil Tryout Gratis 🚀
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ SECTION -->
+      <section id="faq" class="mx-auto max-w-3xl px-4 pb-24 lg:pb-32">
+        <div class="text-center reveal mb-10">
+          <h2 class="text-3xl font-extrabold tracking-tight">FAQ (Tanya Jawab)</h2>
+        </div>
+        
+        <div class="space-y-4">
+          <details class="reveal group glass-card rounded-[1.5rem] p-6 cursor-pointer">
+            <summary class="flex justify-between items-center font-bold text-lg text-ink">
+              Apakah tryout ini benar-benar gratis?
+              <span class="transition group-open:rotate-180">
+                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+              </span>
+            </summary>
+            <p class="mt-4 text-ink/70 leading-relaxed border-t border-ink/10 pt-4">
+              Ya! Kami menyediakan tryout gratis secara berkala yang bisa kamu gunakan untuk tes ombak dan melihat kualitas soal maupun sistem kami sebelum memutuskan untuk upgrade.
+            </p>
+          </details>
+
+          <details class="reveal group glass-card rounded-[1.5rem] p-6 cursor-pointer">
+            <summary class="flex justify-between items-center font-bold text-lg text-ink">
+              Apakah sistemnya mirip dengan aplikasi BKN asli?
+              <span class="transition group-open:rotate-180">
+                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+              </span>
+            </summary>
+            <p class="mt-4 text-ink/70 leading-relaxed border-t border-ink/10 pt-4">
+              Sangat mirip! Kami mengembangkan antarmuka CAT (Computer Assisted Test) yang mengacu pada standar BKN untuk membiasakan kamu dengan tata letak dan navigasi ujian.
+            </p>
+          </details>
+
+          <details class="reveal group glass-card rounded-[1.5rem] p-6 cursor-pointer">
+            <summary class="flex justify-between items-center font-bold text-lg text-ink">
+              Apakah ada pembahasan untuk setiap soal?
+              <span class="transition group-open:rotate-180">
+                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+              </span>
+            </summary>
+            <p class="mt-4 text-ink/70 leading-relaxed border-t border-ink/10 pt-4">
+              Tentu. Setelah selesai mengerjakan, kamu bisa langsung melihat pembahasan lengkap beserta materi terkait, sehingga kamu tahu tepat di mana kesalahanmu.
+            </p>
+          </details>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-ink/10 bg-white/40 py-10 text-center text-sm text-ink/60">
+      <div class="mx-auto max-w-7xl px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-2">
+          <img src="logo-kuydinas.png" alt="Logo Kuy Dinas" class="h-6 w-auto opacity-70 grayscale" loading="lazy" />
+          <span class="font-bold">Kuy Dinas</span>
+        </div>
+        <p>&copy; 2026 Kuy Dinas. All rights reserved.</p>
+        <div class="flex gap-4">
+          <a href="https://wa.me/6282360054904" onclick="trackEvent('click_whatsapp')" class="hover:text-coral transition">Hubungi Admin (WhatsApp)</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- STICKY MOBILE CTA -->
+  <div id="stickyCta" class="fixed bottom-0 w-full p-4 z-50 md:hidden transform translate-y-[150%] transition-transform duration-300">
+    <div class="bg-white/80 backdrop-blur-lg rounded-full p-1.5 shadow-[0_-5px_20px_rgba(0,0,0,0.1)] border border-white">
+      <a href="https://tryout.kuydinas.id" onclick="trackCTA('sticky_mobile')" class="block w-full text-center bg-ink text-white font-bold py-3.5 px-4 rounded-full shadow-lg">
+        🔥 Mulai Gratis Sekarang
+      </a>
+    </div>
+  </div>
+
+  <!-- EXIT INTENT POPUP -->
+  <div id="exitPopup" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+    <div class="absolute inset-0 bg-ink/60 backdrop-blur-sm" onclick="closePopup()"></div>
+    <div class="relative w-full max-w-md rounded-[2rem] bg-white p-8 text-center shadow-2xl transform scale-95 transition-transform" id="popupContent">
+      <button class="absolute right-4 top-4 text-ink/40 hover:text-ink transition" onclick="closePopup()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-rose-100 text-3xl">😱</div>
+      <h3 class="text-2xl font-black text-ink">Tunggu Sebentar!</h3>
+      <p class="mt-3 text-ink/70">Ribuan sainganmu di luar sana sedang sibuk latihan. Yakin mau melewatkan kesempatan tryout gratis ini?</p>
+      
+      <div class="mt-8 flex flex-col gap-3">
+        <a href="https://tryout.kuydinas.id" onclick="trackCTA('exit_popup')" class="w-full rounded-full bg-mint px-4 py-3.5 font-bold text-ink transition hover:shadow-lg hover:-translate-y-0.5">
+          Ya, Saya Mau Coba Gratis
+        </a>
+        <button onclick="closePopup()" class="w-full rounded-full px-4 py-3 font-semibold text-ink/50 transition hover:bg-ink/5 hover:text-ink">
+          Nanti saja, saya rela tertinggal
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script>
+    // 1. Google Analytics Tracking Helpers
+    function trackCTA(buttonName) {
+      if(typeof gtag !== 'undefined') {
+        gtag('event', 'click_cta', { 'button_name': buttonName });
+      }
+    }
+    function trackEvent(eventName) {
+      if(typeof gtag !== 'undefined') {
+        gtag('event', eventName);
+      }
+    }
+    function trackScroll(sectionName) {
+      if(typeof gtag !== 'undefined') {
+        gtag('event', 'scroll_to', { 'section_name': sectionName });
+      }
+    }
+
+    // 2. Scroll Depth Tracking
+    let scrollDepths = { 25: false, 50: false, 75: false, 90: false };
+    window.addEventListener('scroll', () => {
+      let scrollPercent = ((window.scrollY + window.innerHeight) / document.body.scrollHeight) * 100;
+      for (const [depth, isTracked] of Object.entries(scrollDepths)) {
+        if (!isTracked && scrollPercent >= depth) {
+          scrollDepths[depth] = true;
+          if(typeof gtag !== 'undefined') {
+            gtag('event', 'scroll_depth', { 'depth_percentage': depth });
+          }
+        }
+      }
+    }, { passive: true });
+
+    // 3. Reveal Animation
+    const revealItems = document.querySelectorAll(".reveal");
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    revealItems.forEach((item, index) => {
+      // Add slight staggered delay based on order in DOM if they appear together
+      // But simpler is just a small fixed delay or no delay
+      item.style.transitionDelay = `${(index % 3) * 100}ms`;
+      revealObserver.observe(item);
+    });
+
+    // 4. Counters Animation
+    const counters = document.querySelectorAll("[data-counter]");
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        const element = entry.target;
+        const targetStr = element.dataset.counter;
+        const isFloat = targetStr.includes('.');
+        const target = Number(targetStr);
+        const duration = 2000;
+        const start = performance.now();
+
+        const tick = (now) => {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 4); // easeOutQuart
+          const value = target * eased;
+          
+          if(isFloat) {
+            element.textContent = value.toFixed(1);
+          } else {
+            element.textContent = Math.floor(value).toLocaleString("id-ID") + (target > 100 ? "+" : "");
+          }
+
+          if (progress < 1) {
+            requestAnimationFrame(tick);
+          } else {
+             // Final set to exact target
+             if(isFloat) element.textContent = target.toFixed(1);
+             else element.textContent = target.toLocaleString("id-ID") + (target > 100 ? "+" : "");
+          }
+        };
+
+        requestAnimationFrame(tick);
+        counterObserver.unobserve(element);
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach((counter) => counterObserver.observe(counter));
+
+    // 5. Sticky Mobile CTA
+    const stickyCta = document.getElementById('stickyCta');
+    window.addEventListener('scroll', () => {
+      if (window.innerWidth < 768) {
+        // Show after scrolling past 300px
+        if (window.scrollY > 300) {
+          stickyCta.classList.remove('translate-y-[150%]');
+        } else {
+          stickyCta.classList.add('translate-y-[150%]');
+        }
+      }
+    }, { passive: true });
+
+    // 6. Exit Intent Popup
+    let popupTriggered = false;
+    const exitPopup = document.getElementById('exitPopup');
+    const popupContent = document.getElementById('popupContent');
+
+    function openPopup() {
+      if (popupTriggered) return;
+      popupTriggered = true;
+      exitPopup.classList.remove('hidden');
+      exitPopup.classList.add('flex');
+      // small delay for scale animation
+      setTimeout(() => {
+        popupContent.classList.remove('scale-95');
+        popupContent.classList.add('scale-100');
+      }, 10);
+      if(typeof gtag !== 'undefined') gtag('event', 'exit_intent_shown');
+    }
+
+    function closePopup() {
+      popupContent.classList.remove('scale-100');
+      popupContent.classList.add('scale-95');
+      setTimeout(() => {
+        exitPopup.classList.add('hidden');
+        exitPopup.classList.remove('flex');
+      }, 200);
+    }
+
+    // Trigger on mouse leave window (top edge)
+    document.addEventListener('mouseleave', (e) => {
+      if (e.clientY < 0) {
+        openPopup();
+      }
+    });
+
+  </script>
+</body>
+</html>
