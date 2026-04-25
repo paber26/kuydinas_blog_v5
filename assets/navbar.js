@@ -73,7 +73,8 @@ function injectNavbar(currentPage) {
     <!-- Mobile dropdown menu -->
     <div
       id="navbar-mobile-menu"
-      class="navbar-mobile-menu absolute top-full left-0 right-0 mt-2 rounded-2xl border border-white/70 bg-white/95 p-4 shadow-lg backdrop-blur hidden lg:hidden"
+      class="navbar-mobile-menu absolute top-full left-0 right-0 mt-2 rounded-2xl border border-white/70 bg-white/95 p-4 shadow-lg backdrop-blur lg:hidden"
+      style="display: none; z-index: 50;"
     >
       <div class="flex flex-col gap-1">
         ${mobileLinks}
@@ -98,6 +99,7 @@ function injectNavbar(currentPage) {
 
   // Pastikan header punya posisi relative agar mobile menu absolute bisa bekerja
   header.style.position = "relative"
+  header.style.overflow = "visible"
   header.classList.add("mx-auto", "max-w-7xl", "px-6", "py-6", "lg:px-8")
   header.innerHTML = navbarHTML
 
@@ -106,15 +108,17 @@ function injectNavbar(currentPage) {
   const mobileMenu = header.querySelector(".navbar-mobile-menu")
 
   if (hamburgerBtn && mobileMenu) {
-    hamburgerBtn.addEventListener("click", () => {
-      const isHidden = mobileMenu.classList.toggle("hidden")
-      hamburgerBtn.setAttribute("aria-expanded", String(!isHidden))
+    hamburgerBtn.addEventListener("click", (e) => {
+      e.stopPropagation()
+      const isVisible = mobileMenu.style.display === "block"
+      mobileMenu.style.display = isVisible ? "none" : "block"
+      hamburgerBtn.setAttribute("aria-expanded", String(!isVisible))
     })
 
     // Tutup mobile menu saat klik di luar
     document.addEventListener("click", (e) => {
       if (!header.contains(e.target)) {
-        mobileMenu.classList.add("hidden")
+        mobileMenu.style.display = "none"
         hamburgerBtn.setAttribute("aria-expanded", "false")
       }
     })

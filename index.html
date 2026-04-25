@@ -172,15 +172,22 @@
             </div>
             <div class="mt-10 grid max-w-2xl gap-4 sm:grid-cols-3">
               <div class="rounded-3xl border border-white/70 bg-white/75 p-5 shadow-lg backdrop-blur">
-                <p class="text-3xl font-extrabold" data-counter="120000" data-live-key="total_registrations">0</p>
+                <p
+                  class="text-3xl font-extrabold"
+                  data-counter="120000"
+                  data-suffix="+"
+                  data-live-key="total_registrations"
+                >
+                  0
+                </p>
                 <p class="mt-1 text-sm text-ink/60">Peserta latihan</p>
               </div>
               <div class="rounded-3xl border border-white/70 bg-white/75 p-5 shadow-lg backdrop-blur">
-                <p class="text-3xl font-extrabold" data-counter="3200">0</p>
+                <p class="text-3xl font-extrabold" data-counter="3200" data-suffix="+">0</p>
                 <p class="mt-1 text-sm text-ink/60">Bank soal terkurasi</p>
               </div>
               <div class="rounded-3xl border border-white/70 bg-white/75 p-5 shadow-lg backdrop-blur">
-                <p class="text-3xl font-extrabold" data-counter="94">0</p>
+                <p class="text-3xl font-extrabold" data-counter="94" data-suffix="%">0</p>
                 <p class="mt-1 text-sm text-ink/60">Target lolos passing grade</p>
               </div>
             </div>
@@ -404,7 +411,12 @@
             <div
               class="reveal rounded-[2rem] border border-white/70 bg-white/75 p-8 shadow-lg backdrop-blur text-center"
             >
-              <p class="text-4xl font-extrabold text-ink" data-counter="120000" data-live-key="total_registrations">
+              <p
+                class="text-4xl font-extrabold text-ink"
+                data-counter="120000"
+                data-suffix="+"
+                data-live-key="total_registrations"
+              >
                 0
               </p>
               <p class="mt-2 text-sm font-semibold text-ink/60">Total Peserta Latihan</p>
@@ -412,13 +424,27 @@
             <div
               class="reveal rounded-[2rem] border border-white/70 bg-white/75 p-8 shadow-lg backdrop-blur text-center"
             >
-              <p class="text-4xl font-extrabold text-ink" data-counter="85000" data-live-key="total_completed">0</p>
+              <p
+                class="text-4xl font-extrabold text-ink"
+                data-counter="85000"
+                data-suffix="+"
+                data-live-key="total_completed"
+              >
+                0
+              </p>
               <p class="mt-2 text-sm font-semibold text-ink/60">Tryout Diselesaikan</p>
             </div>
             <div
               class="reveal rounded-[2rem] border border-white/70 bg-white/75 p-8 shadow-lg backdrop-blur text-center"
             >
-              <p class="text-4xl font-extrabold text-ink" data-counter="95000" data-live-key="total_users">0</p>
+              <p
+                class="text-4xl font-extrabold text-ink"
+                data-counter="95000"
+                data-suffix="+"
+                data-live-key="total_users"
+              >
+                0
+              </p>
               <p class="mt-2 text-sm font-semibold text-ink/60">Akun Terdaftar</p>
             </div>
           </div>
@@ -801,13 +827,14 @@
               if (!entry.isIntersecting) return
               const element = entry.target
               const target = Number(element.dataset.counter)
+              const suffix = element.dataset.suffix || ""
               const duration = 1600
               const start = performance.now()
               const tick = (now) => {
                 const progress = Math.min((now - start) / duration, 1)
                 const eased = 1 - Math.pow(1 - progress, 3)
                 const value = Math.floor(target * eased)
-                element.textContent = target >= 1000 ? value.toLocaleString("id-ID") + "+" : value + "%"
+                element.textContent = (target >= 1000 ? value.toLocaleString("id-ID") : value) + suffix
                 if (progress < 1) requestAnimationFrame(tick)
               }
               requestAnimationFrame(tick)
