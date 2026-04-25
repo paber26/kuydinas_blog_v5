@@ -123,4 +123,62 @@ function injectNavbar(currentPage) {
       }
     })
   }
+
+  // ─── Scroll-to-top button ────────────────────────────────────────────────
+  const scrollBtn = document.createElement("button")
+  scrollBtn.setAttribute("aria-label", "Kembali ke atas")
+  scrollBtn.innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  `
+  Object.assign(scrollBtn.style, {
+    position: "fixed",
+    bottom: "28px",
+    right: "24px",
+    zIndex: "999",
+    width: "48px",
+    height: "48px",
+    borderRadius: "50%",
+    background: "linear-gradient(135deg, #FF7A59, #F6C453)",
+    color: "#081F2D",
+    border: "none",
+    cursor: "pointer",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    boxShadow: "0 4px 24px rgba(255,122,89,0.45)",
+    opacity: "0",
+    transform: "translateY(12px)",
+    transition: "opacity 250ms ease, transform 250ms ease, box-shadow 200ms ease, scale 200ms ease",
+    pointerEvents: "none"
+  })
+
+  document.body.appendChild(scrollBtn)
+
+  // Tampilkan setelah scroll 300px
+  window.addEventListener(
+    "scroll",
+    () => {
+      const visible = window.scrollY > 300
+      scrollBtn.style.opacity = visible ? "1" : "0"
+      scrollBtn.style.transform = visible ? "translateY(0)" : "translateY(12px)"
+      scrollBtn.style.pointerEvents = visible ? "auto" : "none"
+    },
+    { passive: true }
+  )
+
+  scrollBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  })
+
+  scrollBtn.addEventListener("mouseenter", () => {
+    scrollBtn.style.boxShadow = "0 6px 32px rgba(255,122,89,0.65)"
+    scrollBtn.style.scale = "1.1"
+  })
+  scrollBtn.addEventListener("mouseleave", () => {
+    scrollBtn.style.boxShadow = "0 4px 24px rgba(255,122,89,0.45)"
+    scrollBtn.style.scale = "1"
+  })
 }
